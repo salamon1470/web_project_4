@@ -2,15 +2,25 @@
 
 ### Overview
 
+* About
+* Specs
+* GitPages-link
+
+
+**About**
+
+This is website is a platform meant for users to upload their pictures and share them with friends and people all around the world
+
+**Specs**
+
+To make this project i used:
+
+* CSS 3.0
+* HTML 5
+* Responsive Web Design
+* JavaScript
 * Figma
-* Images
 
-**Figma**
+**Gitpages-link**
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
-
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+https://salamon1470.github.io/web_project_4/

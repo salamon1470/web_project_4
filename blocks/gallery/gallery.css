@@ -1,0 +1,23 @@
+.gallery {
+    width: calc(100% - 200px * 2);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(282px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    padding: 0;
+    gap: 20px 17px;
+}
+
+@media (max-width: 997px) {
+    .gallery {
+        width: calc(100% - 22px * 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        column-gap: 0;
+        width: calc(100% - 19px * 2);
+        margin: 0 auto;
+    }
+}

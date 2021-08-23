@@ -1,0 +1,16 @@
+.popup__input-about {
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 17px;
+    border: none;
+    display: block;
+    margin: 30px auto 13.34px;
+    padding: 0;
+    width: calc(100% - 36px * 2);
+}
+
+@media (max-width: 600px) {
+    .popup__input-about {
+        width: calc(100% - 22px * 2);
+    }
+}

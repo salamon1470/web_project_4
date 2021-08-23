@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Around The U.S.</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="Around US Logo">
+        <div class="header__line"></div>
+    </header>
+
+    <main>
+
+        <section class="profile">
+            <img class="profile__pic" src="./images/profileimg.jpg" alt="profile picture">
+            <div class="profile__info">
+                <h1 class="profile__name">Jacques Cousteau</h1>
+                <button class="profile__edit-btn"></button>
+                <p class="profile__about">Explorer</p>
+            </div>
+            <button class="profile__add-btn"></button>
+            <div class="popup">
+                <form class="popup__container" name="edit">
+                    <button type="button" class="popup__close-btn"></button>
+                    <h2 class="popup__title">Edit profile</h2>
+                    <input type="text" name="name" value="Jacques Cousteau" class="popup__input-name" placeholder="Name">
+                    <div class="popup__line"></div>
+                    <input type="text" name="about me" value="Explorer" class="popup__input-about" placeholder="About me">
+                    <div class="popup__line"></div>
+                    <button type="submit" class="popup__submit-btn">Save</button>
+                </form>
+            </div>
+        </section>
+        <section class="gallery">
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/yosemite valley.jpg" alt="yosemite valley">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Yosemite Valley</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/lake louise.png" alt=" lake louise">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Lake Louise</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/bald mountains.png" alt="bald mountains">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Bald Mountains</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/latemar.png" alt="latemar">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Latemar</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/vanoise national park.png" alt="vanoise national park">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Vanoise NationalPark</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+            <figure class="gallery__item">
+                <img class="gallery__img" src="./images/lago di braies.png" alt="lago di braies">
+                <div class="gallery__caption">
+                    <figcaption class="gallery__text">Lago di Braies</figcaption>
+                    <button class="gallery__like"></button>
+                </div>
+            </figure>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2021 Around The U.S.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

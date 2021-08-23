@@ -1,0 +1,32 @@
+.popup__close-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    position: absolute;
+    z-index: 10;
+    top: -9%;
+    right: -7%;
+    padding: 0;
+    background: url(../../../images/plus.png) no-repeat center;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+}
+
+.popup__close-btn:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1280px) {
+    .popup__close-btn {
+        top: -9%;
+        right: -7%;
+    }
+}
+
+@media (max-width: 600px) {
+    .popup__close-btn {
+        top: -14%;
+        right: -3%;
+    }
+}

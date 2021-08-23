@@ -1,0 +1,15 @@
+.profile__about {
+    font-family: Inter;
+    font-size: 18px;
+    line-height: 22px;
+    color: white;
+    margin: 0;
+    align-self: baseline;
+}
+
+@media (max-width: 600px) {
+    .profile__about {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

@@ -1,0 +1,27 @@
+.profile__add-btn {
+    width: 150px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 2px;
+    background: black url(../../../images/plus.png) no-repeat center;
+    padding: 0;
+    margin-bottom: 4px;
+    transition: opacity 0.5s linear;
+    cursor: pointer;
+}
+
+.profile__add-btn:hover {
+    opacity: 0.6;
+}
+
+@media (max-width: 697px) {
+    .popup__close-btn {
+        width: 90px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile__add-btn {
+        width: 100%;
+    }
+}

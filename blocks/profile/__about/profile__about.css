@@ -1,15 +1,25 @@
 .profile__about {
-    font-family: Inter;
+    font-family: Inter, Arial, sans-serif;
     font-size: 18px;
     line-height: 22px;
     color: white;
     margin: 0;
     align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 600px) {
     .profile__about {
         font-size: 14px;
         line-height: 17px;
+    }
+}
+
+@media (max-width: 320px) {
+    .profile__about {
+        justify-self: center;
+        margin-left: 42px;
     }
 }

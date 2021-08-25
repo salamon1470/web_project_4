@@ -1,6 +1,6 @@
 .popup__close-btn {
-    width: 40px;
-    height: 40px;
+    width: 28.3px;
+    height: 28.3px;
     border: none;
     position: absolute;
     z-index: 10;
@@ -11,22 +11,23 @@
     transform: rotate(-45deg);
     cursor: pointer;
     transition: opacity 0.5s linear;
+    background-size: contain;
 }
 
 .popup__close-btn:hover {
     opacity: 0.6;
 }
 
-@media screen and (max-width: 1280px) {
+@media (max-width: 600px) {
     .popup__close-btn {
-        top: -9%;
-        right: -7%;
+        top: -10%;
+        right: 2%;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 320px) {
     .popup__close-btn {
-        top: -14%;
-        right: -3%;
+        width: 19px;
+        height: 19px;
     }
 }

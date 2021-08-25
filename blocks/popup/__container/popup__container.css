@@ -36,3 +36,9 @@
         width: 65vw;
     }
 }
+
+@media (max-width: 320px) {
+    .popup__container {
+        width: 88.2vw;
+    }
+}

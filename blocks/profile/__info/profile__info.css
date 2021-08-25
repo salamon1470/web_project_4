@@ -24,10 +24,17 @@
 @media (max-width: 600px) {
     .profile__info {
         text-align: center;
-        width: 100%;
-        grid-template-columns: 1fr auto;
+        min-width: 100%;
+        grid-template-columns: 1fr 32px;
         margin: 0 auto 36px;
         column-gap: 10px;
         row-gap: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .profile__info {
+        text-align: right;
+        grid-template-columns: auto 32px;
     }
 }

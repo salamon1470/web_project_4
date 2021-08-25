@@ -9,7 +9,7 @@
 
 **About**
 
-This is website is a platform meant for users to upload their pictures and share them with friends and people all around the world
+This website is a platform meant for users to upload their pictures and share them with friends and people all around the world
 
 **Specs**
 

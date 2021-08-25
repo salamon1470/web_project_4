@@ -12,7 +12,6 @@
 <body class="page">
     <header class="header">
         <img class="header__logo" src="./images/logo.svg" alt="Around US Logo">
-        <div class="header__line"></div>
     </header>
 
     <main>
@@ -21,65 +20,68 @@
             <img class="profile__pic" src="./images/profileimg.jpg" alt="profile picture">
             <div class="profile__info">
                 <h1 class="profile__name">Jacques Cousteau</h1>
-                <button class="profile__edit-btn"></button>
+                <button aria-label="" type="button" class="profile__edit-btn"></button>
                 <p class="profile__about">Explorer</p>
             </div>
-            <button class="profile__add-btn"></button>
-            <div class="popup">
-                <form class="popup__container" name="edit">
-                    <button type="button" class="popup__close-btn"></button>
+            <button aria-label="" type="button" class="profile__add-btn"></button>
+        </section>
+
+        <section class="popup">
+            <div class="popup__container">
+                <form class="popup__form" id="form">
+                    <button aria-label="" type="button" class="popup__close-btn"></button>
                     <h2 class="popup__title">Edit profile</h2>
-                    <input type="text" name="name" value="Jacques Cousteau" class="popup__input-name" placeholder="Name">
-                    <div class="popup__line"></div>
-                    <input type="text" name="about me" value="Explorer" class="popup__input-about" placeholder="About me">
-                    <div class="popup__line"></div>
-                    <button type="submit" class="popup__submit-btn">Save</button>
+                    <input type="text" id="name" value="Jacques Cousteau" class="popup__input" placeholder="Name">
+                    <input type="text" id="about-me" value="Explorer" class="popup__input" placeholder="About me">
+                    <button aria-label="" type="submit" class="popup__submit-btn">Save</button>
                 </form>
             </div>
+
         </section>
+
         <section class="gallery">
-            <figure class="gallery__item">
-                <img class="gallery__img" src="./images/yosemite valley.jpg" alt="yosemite valley">
+            <div class="gallery__item">
+                <img class="gallery__img" src="./images/yosemite-valley.jpg" alt="yosemite valley">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Yosemite Valley</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Yosemite Valley</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
-            <figure class="gallery__item">
-                <img class="gallery__img" src="./images/lake louise.png" alt=" lake louise">
+            </div>
+            <div class="gallery__item">
+                <img class="gallery__img" src="./images/lake-louise.png" alt=" lake louise">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Lake Louise</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Lake Louise</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
-            <figure class="gallery__item">
-                <img class="gallery__img" src="./images/bald mountains.png" alt="bald mountains">
+            </div>
+            <div class="gallery__item">
+                <img class="gallery__img" src="./images/bald-mountains.png" alt="bald mountains">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Bald Mountains</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Bald Mountains</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
-            <figure class="gallery__item">
+            </div>
+            <div class="gallery__item">
                 <img class="gallery__img" src="./images/latemar.png" alt="latemar">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Latemar</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Latemar</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
-            <figure class="gallery__item">
-                <img class="gallery__img" src="./images/vanoise national park.png" alt="vanoise national park">
+            </div>
+            <div class="gallery__item">
+                <img class="gallery__img" src="./images/vanoise-national-park.png" alt="vanoise national park">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Vanoise NationalPark</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Vanoise NationalPark</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
-            <figure class="gallery__item">
-                <img class="gallery__img" src="./images/lago di braies.png" alt="lago di braies">
+            </div>
+            <div class="gallery__item">
+                <img class="gallery__img" src="./images/lago-di-braies.png" alt="lago di braies">
                 <div class="gallery__caption">
-                    <figcaption class="gallery__text">Lago di Braies</figcaption>
-                    <button class="gallery__like"></button>
+                    <p class="gallery__text">Lago di Braies</p>
+                    <button aria-label="" type="button" class="gallery__like"></button>
                 </div>
-            </figure>
+            </div>
         </section>
 
     </main>

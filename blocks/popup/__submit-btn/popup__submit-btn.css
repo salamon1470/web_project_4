@@ -1,6 +1,6 @@
 .popup__submit-btn {
     width: calc(100% - 36px * 2);
-    min-height: 50.15px;
+    height: 50.15px;
     border: none;
     background-color: black;
     display: block;
@@ -23,5 +23,10 @@
 @media (max-width: 600px) {
     .popup__submit-btn {
         width: calc(100% - 22px * 2);
+        margin-top: 45px;
+        margin-bottom: 25px;
+        font-size: 14px;
+        line-height: 17px;
+        max-height: 46px;
     }
 }

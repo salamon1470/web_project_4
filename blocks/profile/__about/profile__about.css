@@ -21,5 +21,6 @@
     .profile__about {
         justify-self: center;
         margin-left: 42px;
+        max-width: 55px;
     }
 }

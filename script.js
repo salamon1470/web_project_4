@@ -1,11 +1,11 @@
 let openEdit = document.querySelector(".profile__edit-btn");
 let popup = document.querySelector('.popup');
 let closeEdit = popup.querySelector('.popup__close-btn');
-let container = document.querySelector('.popup__container');
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
 let inputName = document.getElementById("name");
 let inputAbout = document.getElementById("about-me");
+let form = document.getElementById("form")
 
 if (popup.classList.contains("popup_visible")) {
     inputName.value = profileName.textContent;
@@ -33,4 +33,4 @@ function handleFormSubmit(event) {
 
 openEdit.addEventListener("click", openPopup);
 closeEdit.addEventListener("click", closePopup);
-container.addEventListener('submit', handleFormSubmit);
+form.addEventListener('submit', handleFormSubmit);

@@ -1,14 +1,13 @@
 .popup__close-btn {
-    width: 28.3px;
-    height: 28.3px;
+    width: 40px;
+    height: 40px;
     border: none;
     position: absolute;
     z-index: 10;
-    top: -9%;
-    right: -7%;
+    top: -13%;
+    right: -11%;
     padding: 0;
-    background: url(../../../images/plus.png) no-repeat center;
-    transform: rotate(-45deg);
+    background: url(../../../images/rotated-plus.svg) no-repeat center;
     cursor: pointer;
     transition: opacity 0.5s linear;
     background-size: contain;
@@ -20,14 +19,9 @@
 
 @media (max-width: 600px) {
     .popup__close-btn {
-        top: -10%;
+        top: -15%;
         right: 2%;
-    }
-}
-
-@media (max-width: 320px) {
-    .popup__close-btn {
-        width: 19px;
-        height: 19px;
+        width: 26px;
+        height: 26px;
     }
 }

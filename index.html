@@ -39,50 +39,44 @@
 
         </section>
 
-        <section class="gallery">
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/yosemite-valley.jpg" alt="yosemite valley">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Yosemite Valley</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
+        <section class="popup-add">
+            <div class="popup-add__container">
+                <form class="popup-add__form" name="form-add" id="form-add">
+                    <button aria-label="" type="button" class="popup-add__close-btn"></button>
+                    <h2 class="popup__title">New place</h2>
+                    <input type="text" name="title" id="title" value="" class="popup__input" placeholder="Title">
+                    <input type="text" name="image-link" id="image-link" value="" class="popup__input" placeholder="Image link">
+                    <button aria-label="" type="submit" class="popup-add__submit-btn">Create</button>
+                </form>
             </div>
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/lake-louise.png" alt=" lake louise">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Lake Louise</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/bald-mountains.png" alt="bald mountains">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Bald Mountains</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/latemar.png" alt="latemar">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Latemar</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/vanoise-national-park.png" alt="vanoise national park">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Vanoise NationalPark</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__img" src="./images/lago-di-braies.png" alt="lago di braies">
-                <div class="gallery__caption">
-                    <h2 class="gallery__text">Lago di Braies</h2>
-                    <button aria-label="" type="button" class="gallery__like"></button>
-                </div>
-            </div>
+
         </section>
+
+        <section class="gallery">
+
+        </section>
+
+        <section class="popup-image">
+            <figure class="popup-image__container">
+                <button aria-label="" type="button" class="popup-image__close-btn"></button>
+                <img class="popup-image__picture" src="" alt="">
+                <figcaption class="popup-image__caption"></figcaption>
+            </figure>
+
+        </section>
+
+        <template id="card-template">
+
+                <li class="gallery__item">
+                    <img class="gallery__img" src="" alt="">
+                    <div class="gallery__caption">
+                        <h2 class="gallery__text"></h2>
+                        <button aria-label="" type="button" class="gallery__like"></button>
+                    </div>
+                    <button aria-label="" type="button" class="gallery__trash"></button>
+                </li>
+                
+        </template>
 
     </main>
 

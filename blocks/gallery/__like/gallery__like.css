@@ -11,8 +11,3 @@
 .gallery__like:hover {
     opacity: 0.5;
 }
-
-.gallery__like:active {
-    background: url(../../../images/dark-like.png);
-    opacity: 1;
-}

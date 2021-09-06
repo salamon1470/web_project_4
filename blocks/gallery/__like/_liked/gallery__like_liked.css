@@ -1,0 +1,9 @@
+.gallery__like_liked {
+    background: url(../../../../images/dark-like.png);
+    opacity: 1;
+    width: 21px;
+    height: 19px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}

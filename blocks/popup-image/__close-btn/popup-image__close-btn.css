@@ -1,0 +1,76 @@
+.popup-image__close-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    position: absolute;
+    z-index: 10;
+    top: -8%;
+    right: -6%;
+    padding: 0;
+    background: url(../../../images/rotated-plus.svg) no-repeat center;
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+    background-size: contain;
+}
+
+.popup-image__close-btn:hover {
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+    .popup-image__close-btn {
+        top: -9%;
+        right: -7%;
+    }
+}
+
+@media (max-width: 760px) {
+    .popup-image__close-btn {
+        top: -11%;
+        right: -9%;
+    }
+}
+
+@media (max-width: 630px) {
+    .popup-image__close-btn {
+        top: -12%;
+        right: -10%;
+    }
+}
+
+@media (max-width: 600px) {
+    .popup-image__close-btn {
+        top: -8%;
+        right: -7%;
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 550px) {
+    .popup-image__close-btn {
+        top: -10%;
+        right: -8%;
+    }
+}
+
+@media (max-width: 460px) {
+    .popup-image__close-btn {
+        top: -12%;
+        right: -10%;
+    }
+}
+
+@media (max-width: 370px) {
+    .popup-image__close-btn {
+        top: -14%;
+        right: -12%;
+    }
+}
+
+@media (max-width: 320px) {
+    .popup-image__close-btn {
+        top: -9%;
+        right: -12%;
+    }
+}

@@ -3,4 +3,6 @@
     min-height: 361px;
     margin: 0;
     border-radius: 10px;
+    list-style: none;
+    position: relative;
 }

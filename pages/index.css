@@ -24,6 +24,8 @@
 @import url(../blocks/popup-add/_visible/popup-add_visible.css);
 @import url(../blocks/popup-add/__close-btn/popup-add__close-btn.css);
 @import url(../blocks/popup-add/__container/popup-add__container.css);
+@import url(../blocks/popup-add/__title/popup-add__title.css);
+@import url(../blocks/popup-add/__input/popup-add__input.css);
 @import url(../blocks/popup-add/__submit-btn/popup-add__submit-btn.css);
 @import url(../blocks/gallery/__like/_liked/gallery__like_liked.css);
 @import url(../blocks/gallery/__trash/gallery__trash.css);

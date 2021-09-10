@@ -1,24 +1,24 @@
 const openEdit = document.querySelector(".profile__edit-btn");
-const popup = document.querySelector('.popup');
+const popupProfileEdit = document.querySelector(".profile-edit-popup");
 const popupAdd = document.querySelector(".popup-add");
 const openAdd = document.querySelector(".profile__add-btn");
 const closeAdd = document.querySelector(".popup-add__close-btn");
-const closeEdit = popup.querySelector('.popup__close-btn');
+const closeEdit = popupProfileEdit.querySelector('.popup__close-btn');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
-let inputName = document.getElementById("name");
-let inputAbout = document.getElementById("about-me");
+const inputName = document.getElementById("name");
+const inputAbout = document.getElementById("about-me");
 const inputTitle = document.getElementById("title");
 const inputLink = document.getElementById("image-link");
 const profileForm = document.getElementById("formprofile");
 const formAdd = document.getElementById("form-add");
-let galleryImg = document.querySelector(".gallery__img");
-let imgName = document.querySelector(".gallery__text");
+let galleryImg = document.querySelector(".gallery__img"); // this cannot be const since its assigned a value at the bottom  (temporary comment it will be removed after the review)
+let imgName = document.querySelector(".gallery__text"); // this cannot be const since its assigned a value at the bottom    (temporary comment it will be removed after the review)
 const popupImg = document.querySelector(".popup-image");
-const popupProfileEdit = document.querySelector(".profile-edit-popup");
 
 
-if (popup.classList.contains("popup_visible")) {
+
+if (popupProfileEdit.classList.contains("popup_visible")) {
     inputName.value = profileName.textContent;
     inputAbout.value = profileAbout.textContent;
 }
@@ -93,14 +93,14 @@ function createCard(name, link) {
     removeCard.addEventListener("click", function removeItem() {
         cardElement.remove();
     });
-    let galleryImage = cardElement.querySelector(".gallery__img");
+    const galleryImage = cardElement.querySelector(".gallery__img");
     galleryImage.addEventListener("click", function popupPicture() {
-        openPopup(popupImg)
+        openPopup(popupImg);
         popupImg.style.backgroundcolor = "rgba(0, 0, 0, 0.9)";
-        let clickImage = document.querySelector(".popup-image__picture");
+        const clickImage = document.querySelector(".popup-image__picture");
         clickImage.src = galleryImage.src;
         clickImage.alt = galleryImage.alt;
-        let imageCaption = document.querySelector(".popup-image__caption");
+        const imageCaption = document.querySelector(".popup-image__caption");
         imageCaption.textContent = clickImage.alt;
     });
     cardContainer.prepend(cardElement);
@@ -114,8 +114,8 @@ let imgDesc = document.querySelector(".gallery__img").alt;
 
 function addFormSubmit(event) {
     event.preventDefault();
-    galleryImg = inputLink.value;
-    imgName = inputTitle.value;
+    galleryImg = inputLink.value; // value assigned here (temporary comment it will be removed after the review)
+    imgName = inputTitle.value; // value assigned here  (temporary comment it will be removed after the review)
     imgDesc = imgName;
     createCard(imgName, galleryImg);
     closePopup(popupAdd);

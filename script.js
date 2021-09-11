@@ -12,8 +12,6 @@ const inputTitle = document.getElementById("title");
 const inputLink = document.getElementById("image-link");
 const profileForm = document.getElementById("formprofile");
 const formAdd = document.getElementById("form-add");
-let galleryImg = document.querySelector(".gallery__img"); // this cannot be const since its assigned a value at the bottom  (temporary comment it will be removed after the review)
-let imgName = document.querySelector(".gallery__text"); // this cannot be const since its assigned a value at the bottom    (temporary comment it will be removed after the review)
 const popupImg = document.querySelector(".popup-image");
 
 
@@ -110,14 +108,11 @@ initialCards.forEach((item) => {
     createCard(item.name, item.link);
 });
 
-let imgDesc = document.querySelector(".gallery__img").alt;
-
 function addFormSubmit(event) {
     event.preventDefault();
-    galleryImg = inputLink.value; // value assigned here (temporary comment it will be removed after the review)
-    imgName = inputTitle.value; // value assigned here  (temporary comment it will be removed after the review)
-    imgDesc = imgName;
-    createCard(imgName, galleryImg);
+    const gallerySrc = inputLink.value;
+    const galleryName = inputTitle.value;
+    createCard(galleryName, gallerySrc);
     closePopup(popupAdd);
 }
 

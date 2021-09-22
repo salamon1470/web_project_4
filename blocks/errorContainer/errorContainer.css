@@ -1,0 +1,5 @@
+.errorContainer {
+    width: calc(100% - 36px * 2);
+    display: block;
+    margin: 0 auto 13px;
+}

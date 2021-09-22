@@ -1,0 +1,8 @@
+.popup__input-errorMessage {
+    margin: 5px 0px 13px;
+    max-width: 164px;
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+}

@@ -10,11 +10,9 @@ const inputName = document.getElementById("name");
 const inputAbout = document.getElementById("about-me");
 const inputTitle = document.getElementById("title");
 const inputLink = document.getElementById("image-link");
-const profileForm = document.getElementById("formprofile");
+const profileForm = document.getElementById("form-profile");
 const formAdd = document.getElementById("form-add");
 const popupImg = document.querySelector(".popup-image");
-
-
 
 if (popupProfileEdit.classList.contains("popup_visible")) {
     inputName.value = profileName.textContent;
@@ -23,19 +21,33 @@ if (popupProfileEdit.classList.contains("popup_visible")) {
 
 function openPopup(popup) {
     popup.classList.add("popup_visible");
+    document.addEventListener('click', closeModalByOverlay);
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_visible");
+    document.removeEventListener('click', closeModalByOverlay);
 }
 
-function openProfilePopup() {
+const closeModalByOverlay = (e) => {
+    const visiblePopup = document.querySelector(".popup_visible");
+
+    if (!e.target.closest(".popup__container")) {
+        closePopup(visiblePopup);
+    }
+};
+
+window.onkeydown = function(event) {
+    const visiblePopup = document.querySelector(".popup_visible");
+    if (event.keyCode == 27) {
+        closePopup(visiblePopup);
+    }
+};
+
+function openProfilePopup(e) {
+    e.stopPropagation();
     openPopup(popupProfileEdit);
-    inputName.value = profileName.textContent;
-    inputAbout.value = profileAbout.textContent;
 }
-
-
 
 function handleProfileFormSubmit(event) {
     event.preventDefault();
@@ -44,16 +56,25 @@ function handleProfileFormSubmit(event) {
     closePopup(popupProfileEdit);
 }
 
-closeEdit.addEventListener("click", () => closePopup(popupProfileEdit));
+closeEdit.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closePopup(popupProfileEdit);
+});
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 
 openEdit.addEventListener("click", openProfilePopup);
 
-openAdd.addEventListener("click", () => openPopup(popupAdd));
+openAdd.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openPopup(popupAdd);
+});
 closeAdd.addEventListener("click", () => closePopup(popupAdd));
 formAdd.addEventListener("submit", addFormSubmit);
+
+
+
 
 const initialCards = [{
     name: "Yosemite Valley",
@@ -92,14 +113,15 @@ function createCard(name, link) {
         cardElement.remove();
     });
     const galleryImage = cardElement.querySelector(".gallery__img");
-    galleryImage.addEventListener("click", function popupPicture() {
-        openPopup(popupImg);
+    galleryImage.addEventListener("click", (e) => {
+        e.stopPropagation();
         popupImg.style.backgroundcolor = "rgba(0, 0, 0, 0.9)";
         const clickImage = document.querySelector(".popup-image__picture");
         clickImage.src = galleryImage.src;
         clickImage.alt = galleryImage.alt;
         const imageCaption = document.querySelector(".popup-image__caption");
         imageCaption.textContent = clickImage.alt;
+        openPopup(popupImg);
     });
     cardContainer.prepend(cardElement);
 }

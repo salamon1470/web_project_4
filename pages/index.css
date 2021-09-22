@@ -19,7 +19,11 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input_border_error/popup__input_border_error.css);
+@import url(../blocks/errorContainer/errorContainer.css);
+@import url(../blocks/popup/__input-errorMessage/popup__input-errorMessage.css);
 @import url(../blocks/popup/__submit-btn/popup__submit-btn.css);
+@import url(../blocks/popup/__submit-btn/_disabled/popup__submit-btn_disabled.css);
 @import url(../blocks/gallery/__like/_liked/gallery__like_liked.css);
 @import url(../blocks/gallery/__trash/gallery__trash.css);
 @import url(../blocks/popup-image/popup-image.css);

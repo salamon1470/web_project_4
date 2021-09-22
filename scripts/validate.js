@@ -1,6 +1,6 @@
 const showInputError = (inputElement, settings) => {
     const { inputErrorClass } = settings;
-    const error = inputElement.validationMessage
+    const error = inputElement.validationMessage;
     const errorElement = document.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = error;
     inputElement.classList.add(inputErrorClass);
@@ -33,7 +33,7 @@ function toggleButtonState(inputList, buttonElement, settings) {
         buttonElement.disabled = "disabled";
         buttonElement.classList.add(inactiveButtonClass);
     }
-};
+}
 
 const enableValidation = (settings) => {
     const { formSelector, inputSelector, submitButtonSelector, ...rest } = settings;
@@ -53,11 +53,11 @@ const enableValidation = (settings) => {
             inputElement.addEventListener("input", () => {
                 checkInputValidity(inputElement, rest);
                 toggleButtonState(inputList, buttonElement, rest);
-
-            })
-        })
+            });
+        });
         toggleButtonState(inputList, buttonElement, rest);
     });
+
 };
 const objSettings = {
     formSelector: ".popup__form",
@@ -66,6 +66,6 @@ const objSettings = {
     inactiveButtonClass: "popup__submit-btn_disabled",
     inputErrorClass: "popup__input_border_error",
     errorClass: "popup__input-errorMessage"
-}
+};
 
 enableValidation(objSettings);

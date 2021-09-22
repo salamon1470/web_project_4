@@ -21,25 +21,30 @@ if (popupProfileEdit.classList.contains("popup_visible")) {
 
 function openPopup(popup) {
     popup.classList.add("popup_visible");
+    const visiblePopup = document.querySelector(".popup_visible");
     document.addEventListener('click', closeModalByOverlay);
+    document.addEventListener("keydown", function closePopupKey(e) {
+        if (e.key == "Escape") {
+            closePopup(visiblePopup);
+        };
+    });
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_visible");
     document.removeEventListener('click', closeModalByOverlay);
+    const visiblePopup = document.querySelector(".popup_visible");
+    document.removeEventListener("keydown", function closePopupKey(e) {
+        if (e.key == "Escape") {
+            closePopup(visiblePopup);
+        };
+    });
 }
 
 const closeModalByOverlay = (e) => {
     const visiblePopup = document.querySelector(".popup_visible");
 
     if (!e.target.closest(".popup__container")) {
-        closePopup(visiblePopup);
-    }
-};
-
-window.onkeydown = function(event) {
-    const visiblePopup = document.querySelector(".popup_visible");
-    if (event.keyCode == 27) {
         closePopup(visiblePopup);
     }
 };
@@ -96,7 +101,7 @@ const initialCards = [{
     link: "https://code.s3.yandex.net/web-code/lago.jpg"
 }];
 
-const cardContainer = document.querySelector(".gallery");
+const cardsContainer = document.querySelector(".gallery");
 
 function createCard(name, link) {
     const cardTemplate = document.querySelector('#card-template').content;
@@ -123,7 +128,7 @@ function createCard(name, link) {
         imageCaption.textContent = clickImage.alt;
         openPopup(popupImg);
     });
-    cardContainer.prepend(cardElement);
+    cardsContainer.prepend(cardElement);
 }
 
 initialCards.forEach((item) => {
@@ -136,6 +141,7 @@ function addFormSubmit(event) {
     const galleryName = inputTitle.value;
     createCard(galleryName, gallerySrc);
     closePopup(popupAdd);
+    document.getElementById("form-add").reset();
 }
 
 const popupImgClose = document.querySelector(".popup-image__close-btn");

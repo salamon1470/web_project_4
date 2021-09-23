@@ -19,26 +19,23 @@ if (popupProfileEdit.classList.contains("popup_visible")) {
     inputAbout.value = profileAbout.textContent;
 }
 
+function handleKeyDown(e) {
+    if (e.key == "Escape") {
+        const visiblePopup = document.querySelector(".popup_visible");
+        closePopup(visiblePopup);
+    };
+}
+
 function openPopup(popup) {
     popup.classList.add("popup_visible");
-    const visiblePopup = document.querySelector(".popup_visible");
     document.addEventListener('click', closeModalByOverlay);
-    document.addEventListener("keydown", function closePopupKey(e) {
-        if (e.key == "Escape") {
-            closePopup(visiblePopup);
-        };
-    });
+    document.addEventListener("keydown", handleKeyDown);
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_visible");
     document.removeEventListener('click', closeModalByOverlay);
-    const visiblePopup = document.querySelector(".popup_visible");
-    document.removeEventListener("keydown", function closePopupKey(e) {
-        if (e.key == "Escape") {
-            closePopup(visiblePopup);
-        };
-    });
+    document.removeEventListener("keydown", handleKeyDown);
 }
 
 const closeModalByOverlay = (e) => {
@@ -128,8 +125,14 @@ function createCard(name, link) {
         imageCaption.textContent = clickImage.alt;
         openPopup(popupImg);
     });
+    renderCard(cardElement)
+    return cardElement;
+}
+
+function renderCard(cardElement) {
     cardsContainer.prepend(cardElement);
 }
+
 
 initialCards.forEach((item) => {
     createCard(item.name, item.link);
@@ -139,7 +142,8 @@ function addFormSubmit(event) {
     event.preventDefault();
     const gallerySrc = inputLink.value;
     const galleryName = inputTitle.value;
-    createCard(galleryName, gallerySrc);
+    const cardElement = createCard(galleryName, gallerySrc);
+    renderCard(cardElement)
     closePopup(popupAdd);
     document.getElementById("form-add").reset();
 }

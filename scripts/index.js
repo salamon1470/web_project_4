@@ -125,17 +125,18 @@ function createCard(name, link) {
         imageCaption.textContent = clickImage.alt;
         openPopup(popupImg);
     });
-    renderCard(cardElement)
     return cardElement;
 }
 
-function renderCard(cardElement) {
-    cardsContainer.prepend(cardElement);
+function renderCard(card) {
+    cardsContainer.prepend(card);
 }
 
 
+
 initialCards.forEach((item) => {
-    createCard(item.name, item.link);
+    const card = createCard(item.name, item.link);
+    renderCard(card)
 });
 
 function addFormSubmit(event) {

@@ -19,15 +19,6 @@ export class Card {
         this._cardElement.remove();
     };
 
-    _handleImgPopup = (e) => {
-        e.stopPropagation();
-        popupImg.style.backgroundcolor = "rgba(0, 0, 0, 0.9)";
-        clickImage.src = this._link;
-        clickImage.alt = this._name;
-        imageCaption.textContent = this._name;
-        openPopup(popupImg);
-    }
-
     _setEventListeners() {
         const likeButton = this._cardElement.querySelector(".gallery__like");
         const removeCard = this._cardElement.querySelector(".gallery__trash");

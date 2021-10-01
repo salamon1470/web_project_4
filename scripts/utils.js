@@ -4,7 +4,7 @@ export const imageCaption = document.querySelector(".popup-image__caption");
 
 export function openPopup(popup) {
     popup.classList.add("popup_visible");
-    document.addEventListener('click', closeModalByOverlay);
+    popup.addEventListener('click', closeModalByOverlay);
     document.addEventListener("keydown", handleKeyDown);
 };
 

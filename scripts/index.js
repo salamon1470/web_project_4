@@ -15,11 +15,11 @@ const objSettings = {
 const profileForm = document.getElementById("form-profile");
 const formAdd = document.getElementById("form-add");
 
-const editformValidator = new FormValidator(objSettings, profileForm)
-const addCardformValidator = new FormValidator(objSettings, formAdd)
+const editFormValidator = new FormValidator(objSettings, profileForm)
+const addCardFormValidator = new FormValidator(objSettings, formAdd)
 
-editformValidator.enableValidation();
-addCardformValidator.enableValidation();
+editFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 const openEdit = document.querySelector(".profile__edit-btn");
 const popupProfileEdit = document.querySelector(".profile-edit-popup");
@@ -35,17 +35,13 @@ const inputTitle = document.getElementById("title");
 const inputLink = document.getElementById("image-link");
 
 
-
-
-
 if (popupProfileEdit.classList.contains("popup_visible")) {
     inputName.value = profileName.textContent;
     inputAbout.value = profileAbout.textContent;
 }
 
-function openProfilePopup(e) {
-    e.stopPropagation();
-    editformValidator.resetValidation();
+function openProfilePopup() {
+    editFormValidator.resetValidation();
     openPopup(popupProfileEdit);
 }
 
@@ -56,8 +52,7 @@ function handleProfileFormSubmit(event) {
     closePopup(popupProfileEdit);
 }
 
-closeEdit.addEventListener("click", (e) => {
-    e.stopPropagation();
+closeEdit.addEventListener("click", () => {
     closePopup(popupProfileEdit);
 });
 
@@ -66,9 +61,8 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 openEdit.addEventListener("click", openProfilePopup);
 
-openAdd.addEventListener("click", (e) => {
-    e.stopPropagation();
-    addCardformValidator.resetValidation();
+openAdd.addEventListener("click", () => {
+    addCardFormValidator.resetValidation();
     openPopup(popupAdd);
 });
 
@@ -105,21 +99,24 @@ function renderCard(card) {
     cardsContainer.prepend(card);
 }
 
+
 const cardTemplateSelector = document.getElementById('#card-template')
 
-initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link, cardTemplateSelector);
+const createCard = (name, link, cardTemplateSelector) => {
+    const card = new Card(name, link, cardTemplateSelector);
     const cardElement = card.getCardElement()
     renderCard(cardElement)
+}
+
+initialCards.forEach((item) => {
+    createCard(item.name, item.link, cardTemplateSelector)
 });
 
 function addFormSubmit(event) {
     event.preventDefault();
     const link = inputLink.value;
     const name = inputTitle.value;
-    const card = new Card(name, link, cardTemplateSelector);
-    const cardElement = card.getCardElement()
-    renderCard(cardElement)
+    createCard(name, link, cardTemplateSelector)
     closePopup(popupAdd);
     document.getElementById("form-add").reset();
 }

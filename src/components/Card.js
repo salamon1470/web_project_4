@@ -1,17 +1,15 @@
-import { popupImg, clickImage, imageCaption, openPopup } from "./utils.js"
-
-
+import { popupImg, clickImage, imageCaption } from "../utils/constants.js";
 
 export class Card {
-    constructor(name, link, templateCardSelector) {
-        this._name = name;
-        this._link = link;
+    constructor(data, templateCardSelector, handleCardClick) {
+        this._link = data.link;
+        this._name = data.name;
         this._templateCardSelector = templateCardSelector;
-
-        this._cardTemplate = document.querySelector('#card-template').content;
+        this._handleCardClick = handleCardClick;
+        this._cardTemplate = document.querySelector("#card-template").content;
     }
 
-    _toggleLike = evt => {
+    _toggleLike = (evt) => {
         evt.target.classList.toggle("gallery__like_liked");
     };
 
@@ -27,20 +25,20 @@ export class Card {
         likeButton.addEventListener("click", this._toggleLike);
         removeCard.addEventListener("click", this._removeItem);
         galleryImage.addEventListener("click", (e) => {
+            this._handleCardClick(this._name, this._link);
             e.stopPropagation();
             popupImg.style.backgroundcolor = "rgba(0, 0, 0, 0.9)";
             clickImage.src = galleryImage.src;
             clickImage.alt = galleryImage.alt;
             imageCaption.textContent = clickImage.alt;
-            openPopup(popupImg);
         });
     }
 
-
     getCardElement = () => {
-        this._cardElement = this._cardTemplate.querySelector(".gallery__item").cloneNode(true);
+        this._cardElement = this._cardTemplate
+            .querySelector(".gallery__item")
+            .cloneNode(true);
         const galleryImage = this._cardElement.querySelector(".gallery__img");
-
         galleryImage.src = this._link;
         this._cardElement.querySelector(".gallery__text").textContent = this._name;
         this._cardElement.querySelector(".gallery__img").alt = this._name;
@@ -48,5 +46,5 @@ export class Card {
         this._setEventListeners();
 
         return this._cardElement;
-    }
+    };
 }

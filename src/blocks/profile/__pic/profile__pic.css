@@ -3,6 +3,12 @@
     max-height: 120px;
     border-radius: 50%;
     margin-right: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile__pic:hover+#avatar-edit {
+    display: block;
 }
 
 @media (max-width: 600px) {

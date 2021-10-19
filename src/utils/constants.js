@@ -23,8 +23,8 @@ export const inputAbout = document.getElementById("about-me");
 export const popupImgClose = document.querySelector(".popup-image__close-btn");
 export const profileImg = document.getElementById("profile-img");
 export const logoImg = document.getElementById("logo");
-
-export const cardsContainer = document.querySelector(".gallery");
+export const formAvatar = document.querySelector(".popup-edit-pic__form")
+export const avatarOverlay = document.querySelector(".profile__pic-overlay")
 
 export const cardTemplateSelector = document.getElementById("#card-template");
 
@@ -54,6 +54,8 @@ export const initialCards = [{
     },
 ];
 
+
 document.querySelector(".popup__container").style.cursor = "default";
 document.querySelector(".popup-add__container").style.cursor = "default";
-document.querySelector(".popup-image__container").style.cursor = "default"; // styles for popups
+document.querySelector(".popup-image__container").style.cursor = "default";
+document.querySelector(".popup-del-modal__container").style.cursor = "default"; // styles for popups

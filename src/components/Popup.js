@@ -1,3 +1,4 @@
+import { popupImgClose } from "../utils/constants";
 export class Popup {
     constructor(popupSelector) {
         this._popupElement = document.querySelector(popupSelector);
@@ -20,6 +21,7 @@ export class Popup {
         this._popupElement
             .querySelector(".popup__close-btn")
             .addEventListener("click", this.close);
+        popupImgClose.addEventListener("click", this.close);
     }
 
     _closeModalByOverlay = (e) => {

@@ -10,7 +10,6 @@ import { PopupWithSubmit } from "../components/PopupWithSumbit.js";
 import { Section } from "../components/Section.js";
 import logoSrc from "../images/logo.svg";
 import { inputAbout, inputName } from "../utils/constants.js";
-import { popupImgClose } from "../utils/constants.js";
 import { cardTemplateSelector } from "../utils/constants.js";
 import { openEdit } from "../utils/constants.js";
 import { openAdd } from "../utils/constants.js";
@@ -22,6 +21,11 @@ import { logoImg } from "../utils/constants";
 import { api } from "../components/Api.js";
 import { formAvatar } from "../utils/constants.js"
 import { avatarOverlay } from "../utils/constants.js"
+
+
+
+
+
 
 let userId
 
@@ -57,26 +61,52 @@ editPicFormValidator.enableValidation();
 const imageModal = new PopupWithImage(".popup-image");
 imageModal.setEventListeners();
 
+
+const popupEditProfileSubmit = document.getElementById('popup-edit-submit');
+const popupEditAvatarSubmit = document.getElementById('popup-edit-pic-submit');
+const popupAddCardSubmit = document.getElementById('popup-add-submit');
+const popupDelModalSubmit = document.getElementById('popup-del-modal-submit');
+
+
 const editModal = new PopupWithForm(".profile-edit-popup", (data) => {
-    renderLoading(true)
-    userInfo.editUserInfo({
-        userName: data.name,
-        userJob: data.about
-    });
+    renderLoading(popupEditProfileSubmit, true)
+    api.editUserInfo(data)
+        .then(res => {
+            userInfo.editUserInfo({
+                userName: res.name,
+                userJob: res.about
+            });
+            editModal.close();
+
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            renderLoading(popupEditProfileSubmit);
+            popupEditProfileSubmit.textContent = 'Save';
+        })
+
 });
 
 const popupEditPic = new PopupWithForm(".popup-edit-pic", (data) => {
-    renderLoading(true)
-    userInfo.setUserPic({ userAvatar: data.avatar });
+    renderLoading(popupEditAvatarSubmit, true)
     api.editUserAvatar(data.avatar)
+        .then(res => {
+            userInfo.setUserPic({ userAvatar: res.avatar });
+            popupEditPic.close();
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            renderLoading(popupEditAvatarSubmit);
+            popupEditAvatarSubmit.textContent = 'Savee';
+        })
 })
 avatarOverlay.addEventListener("click", () => {
     editPicFormValidator.resetValidation();
     popupEditPic.open();
-    const currentActiveButton = document.querySelector('.popup_visible .popup__submit-btn');
-
-    currentActiveButton.textContent = 'Save';
-
 })
 popupEditPic.setEventListeners();
 
@@ -120,6 +150,7 @@ const generateCard = (data) => {
             confirmDelModal.open()
 
             confirmDelModal.setAction(() => {
+                renderLoading(popupDelModalSubmit, true)
                 api.deleteCard(id)
                     .then(res => {
                         console.log("card is deleted!", res)
@@ -128,6 +159,10 @@ const generateCard = (data) => {
                     })
                     .catch((err) => {
                         console.log(err)
+                    })
+                    .finally(() => {
+                        renderLoading(popupDelModalSubmit)
+                        popupDelModalSubmit.textContent = 'Create';
                     })
             })
 
@@ -145,27 +180,26 @@ const createCard = new Section({
     ".gallery"
 );
 
-const renderLoading = (isLoading = false) => {
-    const currentActiveButton = document.querySelector('.popup_visible .popup__submit-btn');
-
+const renderLoading = (currentActiveButton, isLoading = false) => {
     currentActiveButton.textContent = isLoading ? 'Saving...' : 'Saved';
 };
 
 
 const addCardModal = new PopupWithForm(".popup-add", (data) => {
-    renderLoading(true)
+    renderLoading(popupAddCardSubmit, true)
 
     api.createCard(data)
         .then(res => {
             const card = generateCard(res);
             createCard.addItem(card.getCardElement());
+            addCardModal.close()
         })
         .catch((err) => {
             console.log(err)
         })
         .finally(() => {
-            renderLoading()
-            addCardModal.close()
+            renderLoading(popupAddCardSubmit);
+            popupAddCardSubmit.textContent = 'Create';
         })
 });
 
@@ -179,17 +213,9 @@ openEdit.addEventListener("click", () => {
     inputAbout.value = data.job;
     editFormValidator.resetValidation();
     editModal.open();
-    const currentActiveButton = document.querySelector('.popup_visible .popup__submit-btn');
-
-    currentActiveButton.textContent = 'Save';
 });
 
 openAdd.addEventListener("click", () => {
     addCardFormValidator.resetValidation();
     addCardModal.open();
-    const currentActiveButton = document.querySelector('.popup_visible .popup__submit-btn');
-
-    currentActiveButton.textContent = 'Create';
 });
-
-popupImgClose.addEventListener("click", imageModal.close);

@@ -1,9 +1,6 @@
 const customFetch = (url, headers) =>
     fetch(url, headers)
     .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
-    .catch((err) => {
-        console.log(err)
-    })
 
 class Api {
     constructor({ baseUrl, headers }) {
@@ -57,13 +54,13 @@ class Api {
 
     }
 
-    editUserInfo() {
+    editUserInfo(data) {
         return customFetch(`${this._baseUrl}/users/me`, {
             headers: this._headers,
             method: "PATCH",
             body: JSON.stringify({
-                name: "Nikola Tesla",
-                about: "Physicist, Electrical engineer and a mad genius"
+                name: data.name,
+                about: data.about
             })
         })
 

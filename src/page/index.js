@@ -83,7 +83,6 @@ const editModal = new PopupWithForm(".profile-edit-popup", (data) => {
             console.log(err)
         })
         .finally(() => {
-            renderLoading(popupEditProfileSubmit);
             popupEditProfileSubmit.textContent = 'Save';
         })
 
@@ -100,8 +99,7 @@ const popupEditPic = new PopupWithForm(".popup-edit-pic", (data) => {
             console.log(err)
         })
         .finally(() => {
-            renderLoading(popupEditAvatarSubmit);
-            popupEditAvatarSubmit.textContent = 'Savee';
+            popupEditAvatarSubmit.textContent = 'Save';
         })
 })
 avatarOverlay.addEventListener("click", () => {
@@ -161,7 +159,6 @@ const generateCard = (data) => {
                         console.log(err)
                     })
                     .finally(() => {
-                        renderLoading(popupDelModalSubmit)
                         popupDelModalSubmit.textContent = 'Yes';
                     })
             })
@@ -198,7 +195,6 @@ const addCardModal = new PopupWithForm(".popup-add", (data) => {
             console.log(err)
         })
         .finally(() => {
-            renderLoading(popupAddCardSubmit);
             popupAddCardSubmit.textContent = 'Create';
         })
 });

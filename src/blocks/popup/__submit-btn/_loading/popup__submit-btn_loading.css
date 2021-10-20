@@ -1,0 +1,12 @@
+.popup__submit-btn_loading {
+    visibility: hidden!important;
+    position: relative!important;
+}
+
+.popup__submit-btn_loading:focus::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Saving...";
+}

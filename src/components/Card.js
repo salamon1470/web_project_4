@@ -15,10 +15,6 @@ export class Card {
         this._likes = data.likes;
     }
 
-    // _toggleLike = (evt) => {
-    //     evt.target.classList.toggle("gallery__like_liked");
-    // };
-
     removeCard = () => {
         this._cardElement.remove();
 
@@ -30,7 +26,7 @@ export class Card {
         const removeCard = this._cardElement.querySelector(".gallery__trash");
         const galleryImage = this._cardElement.querySelector(".gallery__img");
 
-        likeButton.addEventListener("click", this._handleLikeIcon(this._id));
+        likeButton.addEventListener("click", () => this._handleLikeIcon(this._id));
         removeCard.addEventListener("click", () => this._handleDeleteCard(this._id));
         galleryImage.addEventListener("click", (e) => {
             this._handleCardClick(this._name, this._link);
@@ -56,7 +52,11 @@ export class Card {
 
     }
 
-    dislikeCard() {
+    dislikeCard(newLikes) {
+        this._likes = newLikes
+
+        this._cardElement.querySelector(".gallery__likes-counter").textContent = this._likes.length
+
         this._cardElement.querySelector(".gallery__like").classList.remove("gallery__like_liked")
     }
 
@@ -77,7 +77,7 @@ export class Card {
 
         this._cardElement.querySelector(".gallery__likes-counter").textContent = this._likes.length
 
-        if (this.likeCard) {
+        if (this.isLiked()) {
             this.likeCard(this._likes)
         }
 

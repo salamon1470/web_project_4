@@ -24,7 +24,7 @@ export const popupImgClose = document.querySelector(".popup-image__close-btn");
 export const profileImg = document.getElementById("profile-img");
 export const logoImg = document.getElementById("logo");
 export const formAvatar = document.querySelector(".popup-edit-pic__form")
-export const avatarOverlay = document.querySelector(".profile__pic-overlay")
+export const avatarOverlay = document.querySelector(".img-div")
 
 export const cardTemplateSelector = document.getElementById("#card-template");
 

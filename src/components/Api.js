@@ -1,7 +1,9 @@
 const customFetch = (url, headers) =>
     fetch(url, headers)
-    .then(res => res.ok ? res.json() : Promise.reject(res.statusText))
-    .catch(console.log);
+    .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
+    .catch((err) => {
+        console.log(err)
+    })
 
 class Api {
     constructor({ baseUrl, headers }) {
@@ -27,6 +29,7 @@ class Api {
             method: "POST",
             body: JSON.stringify(data)
         })
+
 
     }
 
@@ -76,13 +79,8 @@ class Api {
         })
 
     }
-
-
-
-
 }
 
-// "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tesla_circa_1890.jpeg/800px-Tesla_circa_1890.jpeg"
 export const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-12",
     headers: {
@@ -90,5 +88,6 @@ export const api = new Api({
         "Content-Type": "application/json"
     }
 });
+
 
 // "ed1619c1-357f-4bf4-a7c0-874397823a23"

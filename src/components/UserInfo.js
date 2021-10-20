@@ -9,6 +9,7 @@ export class UserInfo {
         return {
             name: this._userName.textContent,
             job: this._userJob.textContent,
+            avatar: this._userAvatar.src
         };
     }
 
@@ -16,6 +17,11 @@ export class UserInfo {
         this._userName.textContent = userName;
         this._userJob.textContent = userJob;
         this._userAvatar.src = userAvatar
+    }
+
+    editUserInfo({ userName, userJob }) {
+        this._userName.textContent = userName;
+        this._userJob.textContent = userJob;
     }
 
     setUserPic({ userAvatar }) {

@@ -25,7 +25,7 @@ export class Popup {
     }
 
     _closeModalByOverlay = (e) => {
-        if (!e.target.closest(".popup__container")) {
+        if (!e.target.closest(".popup__container") & (!e.target.closest(".popup-image__container"))) {
             this.close();
         }
     };

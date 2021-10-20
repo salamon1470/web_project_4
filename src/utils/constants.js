@@ -54,8 +54,8 @@ export const initialCards = [{
     },
 ];
 
-
 document.querySelector(".popup__container").style.cursor = "default";
+document.querySelector(".profile-edit-popup__container").style.cursor = "default";
 document.querySelector(".popup-add__container").style.cursor = "default";
 document.querySelector(".popup-image__container").style.cursor = "default";
 document.querySelector(".popup-del-modal__container").style.cursor = "default"; // styles for popups

@@ -162,7 +162,7 @@ const generateCard = (data) => {
                     })
                     .finally(() => {
                         renderLoading(popupDelModalSubmit)
-                        popupDelModalSubmit.textContent = 'Create';
+                        popupDelModalSubmit.textContent = 'Yes';
                     })
             })
 

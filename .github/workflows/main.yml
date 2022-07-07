@@ -11,6 +11,9 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
+      if [ $? -ne 0 ]
+then
+    mailx -s "FAIL" salamon1470@gmail.com
         uses: cypress-io/github-action@v4
         with:
           build: npm run build

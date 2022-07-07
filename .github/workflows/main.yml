@@ -5,7 +5,10 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    steps:
+    steps:    
+    - ${{ if [ $? -ne 0 ]
+    then
+    mailx -s "FAIL" salamon1470@gmail.com }}:
       - name: Checkout
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly

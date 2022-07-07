@@ -5,7 +5,7 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    steps:    
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
@@ -15,7 +15,3 @@ jobs:
         with:
           build: npm run build
           start: npm run dev
-
-                if [ $? -ne 0 ]
-then
-    mailx -s "FAIL" salamon1470@gmail.com

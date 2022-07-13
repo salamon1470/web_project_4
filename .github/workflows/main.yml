@@ -19,10 +19,10 @@ jobs:
       # - name: check on failures 
       #   if: steps.cypress.outcome != 'success'
       #   run: exit 1
-      - name: ls -a via ssh
+      - name: ssh server deploy
         uses: garygrossgarten/github-action-ssh@v0.6.3
         with:
-          command: cd Salamon/web_project_4 && ./deploy.sh
+          command: cd Salamon/web_project_4 && sudo ./deploy.sh
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}

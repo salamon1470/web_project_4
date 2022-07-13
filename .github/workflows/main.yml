@@ -22,7 +22,7 @@ jobs:
       - name: ssh server deploy
         uses: garygrossgarten/github-action-ssh@v0.6.3
         with:
-          command: cd Salamon/web_project_4 && sudo ./deploy.sh
+          command: cd Salamon/web_project_4 && sudo bash deploy.sh
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}

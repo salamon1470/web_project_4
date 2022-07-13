@@ -22,7 +22,7 @@ jobs:
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@v0.6.3
         with:
-          command: ls -a
+          command: cd Salamon/web_project_4 && ./deploy.sh
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}

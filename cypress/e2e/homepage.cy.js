@@ -1,6 +1,6 @@
 describe('The Home Page', () => {
   it('visits the home page', () => {
-    cy.visit('http://35.205.56.34//')
+    cy.visit('http://35.205.56.37//')
   })
   // This is a comment for the new branch
 })

@@ -11,7 +11,22 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
+        id: cypress
         uses: cypress-io/github-action@v4
         with:
           build: npm run build
           start: npm run dev
+      # - name: check on failures 
+      #   if: steps.cypress.outcome != 'success'
+      #   run: exit 1
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: cd Salamon/web_project_4 && ./deploy.sh
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
+        env:
+          CI: true
+

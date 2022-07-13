@@ -5,17 +5,17 @@ on:
     types:
       - closed
 jobs:
-  if_merged:
+  deploy-on-merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - name: ssh server deploy
-      uses: garygrossgarten/github-action-ssh@v0.6.3
-      with:
-        command: cd Salamon/web_project_4 && sudo bash deploy.sh
-        host: ${{ secrets.HOST }}
-        port: ${{ secrets.PORT }}
-        username: ${{ secrets.USERNAME }}
-        privateKey: ${{ secrets.PRIVATE_KEY}}
-      env:
-        CI: true
+      - name: ssh server deploy
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: cd Salamon/web_project_4 && sudo bash deploy.sh
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
+        env:
+          CI: true

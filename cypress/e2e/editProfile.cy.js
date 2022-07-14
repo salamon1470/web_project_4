@@ -1,0 +1,16 @@
+describe('Edit profile', () => {
+  it('Edits profile name&desc', () => {
+    cy.visit('/')
+    cy.get('.profile__edit-btn').click()
+    cy.get('.profile-edit-popup').should('be.visible')
+    cy.get('input[id="name"]').clear().type('Nikola Tesla1')
+    cy.get('input[id="about-me"]').clear().type('Physicist, Electrical engineer and a mad genius')
+    cy.get('button[id="popup-edit-submit"]').click()
+    cy.get('.profile-edit-popup').should('not.be.visible')
+    cy.get('.profile__name').should('have.text','Nikola Tesla1')
+    cy.get('.profile__about').should('have.text','Physicist, Electrical engineer and a mad genius')
+    cy.reload()
+    cy.get('.profile__name').should('have.text','Nikola Tesla1')
+    cy.get('.profile__about').should('have.text','Physicist, Electrical engineer and a mad genius')
+  })
+})

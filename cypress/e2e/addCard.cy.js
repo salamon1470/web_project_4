@@ -1,0 +1,17 @@
+describe('Add card', () => {
+  it('adds a new card', () => {
+    cy.visit('/')
+    cy.get('.profile__add-btn').click()
+    cy.get('.popup-add').should('be.visible')
+    cy.get('input[id="title"]').clear().type('testCard')
+    cy.get('input[id="image-link"]').clear().type('https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg')
+    cy.get('button[id="popup-add-submit"]').should('not.be.disabled')
+    cy.get('button[id="popup-add-submit"]').click()
+    cy.get('.popup-add').should('not.be.visible')
+    cy.contains('testCard')
+    cy.get('.gallery__img').should('have.attr','src').should('include','https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg')
+    cy.reload()
+    cy.contains('testCard')
+    cy.get('.gallery__img').last().should('have.attr','src').should('include','https://api.time.com/wp-content/uploads/2022/07/NASA-james-webb-telescope-07.jpg')
+  })
+})
